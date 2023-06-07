@@ -13,13 +13,11 @@
     font-weight: bold;
 }
 
-/* START: Main Landing Header*/
+/* Main Landing Header */
 .main-header {
     height: 100vh;
-
     display: grid;
     grid-template-columns: 4fr 17fr 4fr;
-
     background: url("background.png") no-repeat;
     background-size: cover;
 }
@@ -64,7 +62,7 @@ h3.main-text {
 }
 
 .navbar li {
-    padding: .5em;
+    padding: 0.5em;
     margin: 1em;
     font-size: 2.5em;
     font-weight: bold;
@@ -75,26 +73,151 @@ h3.main-text {
     color: white;
 }
 
-.navbar a:hover{
+.navbar a:hover {
     border-bottom: 4px solid rgb(206, 186, 77);
 }
 
-.navbar-link{
+.navbar-link {
     color: white;
 }
 
+/* Text Styles */
+.title-text,
+.subtitle-text,
+.pill-text-head {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text-color);
+}
 
-/* END: Main landing Header */
+.title-text{
+    font-size: 2.5em;
+}
 
+.pill-text-head {
+    font-size: 2em;
+}
+
+.pill-text-p {
+    font-size: 1.75em;
+}
+
+/* Grid Styles */
+.container {
+    padding: 0.25rem;
+    margin: 0.25rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.profile-grid,
+.project-grid,
+.SW-grid,
+.single-grid,
+.footer-grid,
+.profile-button-link-grid,
+.knowledge-base-grid,
+.quarter-grid {
+    display: grid;
+    gap: var(--gap);
+    margin: 2.5em;
+}
+
+.profile-grid {
+    grid-template-columns: 4fr 7fr;
+}
+
+.project-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.SW-grid {
+    grid-template-columns: 3fr 7fr 3fr;
+}
+
+.single-grid {
+    grid-template-columns: 1fr;
+}
+
+.footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.profile-button-link-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.knowledge-base-grid {
+    grid-template-columns: 2fr 3fr;
+}
+
+.quarter-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Pill Styles */
+.pill {
+    padding: 1em;
+}
+
+.horizontal-pill,
+.vertical-pill,
+.two-thirds-pill,
+.one-third-pill,
+.uneven-pill-large,
+.uneven-pill-small {
+    text-align: center;
+    border-radius: var(--border-radius);
+    background-color: var(--pill-colour);
+    box-shadow: var(--pill-shadow);
+}
+
+.horizontal-pill {
+    margin: 2.5em;
+}
+
+.two-thirds-pill,
+.one-third-pill,
+.uneven-pill-large,
+.uneven-pill-small {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
+
+/* Button classes */
+#backToTopButton {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    margin: 2.5em;
+}
+
+#backToTopButton.show {
+    display: block;
+}
+
+.back-to-top-button,
+.button {
+    color: var(--text-color);
+    display: inline-block;
+    padding: 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--pill-shadow);
+}
+
+/* Other Styles */
 body {
     background-color: var(--background-colour);
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    /*padding-left: 1em;
-    padding-right: 1em;*/
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -114,165 +237,11 @@ a {
     color: black;
 }
 
-.container {
-    padding: 0.25rem;
-    margin: 0.25rem;
-    font-weight: bold;
-    font-size: 1.5rem;
-    position: relative;
-}
-
-
-/* Grid Styles */
-
-.profile-grid {
-    display: grid;
-    gap: var(--gap);
-    grid-template-columns: 4fr 7fr;
-
-    margin: 2.5em;
-}
-
-.project-grid {
-    display: grid;
-    gap: var(--gap);
-    grid-template-columns: 1fr 1fr 1fr;
-
-    margin: 2.5em;
-}
-
-.SW-grid {
-    display: grid;
-    gap: var(--gap);
-    grid-template-columns: 3fr 7fr 3fr;
-
-    margin: 2.5em;
-}
-
-.single-grid {
-    display: grid;
-    gap: var(--gap);
-    grid-template-columns: 1fr;
-
-    margin: 1em;
-    padding: 0;
-}
-
-.footer-grid {
-    display: grid;
-    gap: 3em;
-    grid-template-columns: repeat(3, 1fr);
-
-    margin: 1em;
-}
-
-.profile-button-link-grid {
-    display: grid;
-    gap: 3em;
-    grid-template-columns: 1fr 1fr;
-
-    margin: 1em;
-}
-
-/* Pill Styles */
-
-.pill {
-    padding: 1em;
-}
-
-.horizontal-pill {
-    background-color: var(--pill-colour);
-    text-align: center;
-    border-radius: var(--border-radius);
-
-    box-shadow: var(--pill-shadow);
-    margin: 2.5em;
-}
-
-.vertical-pill {
-    text-align: center;
-    border-radius: var(--border-radius);
-    background-color: var(--pill-colour);
-    box-shadow: var(--pill-shadow);
-}
-
-
-.two-thirds-pill {
-    text-align: center;
-    border-radius: var(--border-radius);
-    background-color: var(--pill-colour);
-    box-shadow: var(--pill-shadow);
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-}
-
-.one-third-pill {
-    text-align: center;
-    border-radius: var(--border-radius);
-    background-color: var(--pill-colour);
-    box-shadow: var(--pill-shadow);
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-}
-
-.uneven-pill-large {
-    text-align: center;
-    border-radius: var(--border-radius);
-    background-color: var(--pill-colour);
-    box-shadow: var(--pill-shadow);
-
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-}
-
-.uneven-pill-small {
-    text-align: center;
-    border-radius: var(--border-radius);
-    background-color: var(--pill-colour);
-    box-shadow: var(--pill-shadow);
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-}
-
-
-/* START: Text Styles */
-
-.title-text {
-    text-decoration: none;
-    font-size: 4rem;
-    font-weight: bold;
-    display: inline-block;
-    color: var(--text-color);
-}
-
-.subtitle-text {
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    color: var(--text-color);
-}
-
-.pill-text-head {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 2em;
-    color: var(--text-color);
-}
-
-.pill-text-p {
-    font-size: 1.75em;
-    color: var(--text-color);
-    font-weight: bold;
-}
-
-/* END: Text Styles */
-
 .about-image {
     width: 100%;
     border-radius: var(--border-radius);
 }
 
-/* START: Divider Text Styles */
 .divider-text-container {
     padding: 1em;
 }
@@ -284,44 +253,88 @@ a {
     text-align: center;
 }
 
-/* END: Divider Text Styles*/
+.center-flex,
+.center-flex-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-/* START: Button classes */
+.center-flex-col {
+    flex-direction: column;
+    text-align: left;
+    padding: 1.25em;
+}
 
-#backToTopButton {
-    display: block; /* Can Change this to hidden */
+.center-flex-col ul {
+    list-style: circle;
+}
+
+.slider-container {
     position: relative;
-    cursor: pointer;
-    margin: 2.5em;
-}
-
-#backToTopButton.show {
-    display: block;
-}
-
-.back-to-top-button {
-    color: var(--text-color);
-    display: inline-block;
-    padding: 1.5em;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: var(--border-radius);
-    border: none;
+    background-color: var(--background-colour);
     box-shadow: var(--pill-shadow);
-}
-
-.button {
-    display: inline-block;
-    padding: 1.5em;
-    font-size: 1em;
-    cursor: pointer;
     border-radius: var(--border-radius);
-    border: none;
-    box-shadow: var(--pill-shadow);
+    height: 2.5em;
+    overflow: hidden;
 }
 
-/* END: Button Classes */
+.slider,
+.slider-one,
+.slider-two,
+.slider-three,
+.slider-four {
+    position: relative;
+    height: 100%;
+    width: 1%;
+    background-color: transparent;
+    transition: width 0.5s;
+}
 
+.slider-one.active {
+    background-color: rgb(206, 186, 77);
+    width: 25%;
+}
+
+.slider-two.active {
+    background-color: rgb(206, 186, 77);
+    width: 50%;
+}
+
+.slider-three.active {
+    background-color: rgb(206, 186, 77);
+    width: 75%;
+}
+
+.slider-four.active {
+    background-color: rgb(206, 186, 77);
+    width: 100%;
+}
+
+.slider-container.first,
+.slider-container.second,
+.slider-container.third {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.slider-container.first {
+    left: 25%;
+}
+
+.slider-container.second {
+    left: 50%;
+}
+
+.slider-container.third {
+    left: 75%;
+}
+
+/* Footer Styles */
 footer {
     background-color: darkgray;
     width: 100%;
@@ -333,24 +346,6 @@ footer {
     padding-bottom: 1em;
 }
 
-.center-flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.center-flex a{
+.center-flex a {
     color: white;
-}
-
-.center-flex-col{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-}
-
-.center-flex-col ul{
-    list-style: circle;
 }
