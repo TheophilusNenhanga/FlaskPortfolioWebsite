@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (sliderPosition.top >= - 50 && sliderPosition.bottom <= windowHeight + 50) {
                 slider.classList.add("active");
-            } else {
-                slider.classList.remove("active");
             }
         });
     });
