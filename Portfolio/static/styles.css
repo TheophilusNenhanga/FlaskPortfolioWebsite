@@ -111,6 +111,7 @@ h3.main-text {
     position: relative;
 }
 
+.half-grid,
 .profile-grid,
 .project-grid,
 .SW-grid,
@@ -156,11 +157,16 @@ h3.main-text {
     grid-template-columns: repeat(4, 1fr);
 }
 
+.half-grid{
+    grid-template-columns: 1fr 1fr;
+}
+
 /* Pill Styles */
 .pill {
     padding: 1em;
 }
 
+.half-pill,
 .horizontal-pill,
 .vertical-pill,
 .two-thirds-pill,
@@ -177,6 +183,7 @@ h3.main-text {
     margin: 2.5em;
 }
 
+.half-pill,
 .two-thirds-pill,
 .one-third-pill,
 .uneven-pill-large,
@@ -187,7 +194,6 @@ h3.main-text {
 
 /* Button classes */
 #backToTopButton {
-    display: none;
     position: relative;
     cursor: pointer;
     margin: 2.5em;
