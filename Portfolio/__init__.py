@@ -30,4 +30,3 @@ def init_database(app):
                 database.session.add(project)
 
         database.session.commit()
-

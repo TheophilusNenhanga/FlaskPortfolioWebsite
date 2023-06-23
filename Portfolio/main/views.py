@@ -8,7 +8,7 @@ strengths = ["Fast Learner", "Good Team Player", "Goal Oriented", "Self Motivate
 
 weaknesses = ["Weakness1", "Weakness2", "Weakness3"]
 
-languages = [
+programming_languages = [
     ["Python", 3],
     ["Java", 3],
     ["HTML+CSS", 2],
@@ -19,11 +19,8 @@ languages = [
 @main.route("/", methods=["GET", "POST"])
 def home():
     project_db = Project.query.all()
-    for x in project_db:
-        print(x.name)
-    project_length = len(project_db) - 1
     return render_template("home.html", project_variable=project_db, strength_variable=strengths,
-                           weakness_variable=weaknesses, project_length=project_length, languages=languages)
+                           weakness_variable=weaknesses, languages=programming_languages)
 
 
 def create_project_route(project_name, motivation, about, skills, languages, template_name):
