@@ -1,6 +1,5 @@
-/* for regular screen sizes only */
 :root {
-    --border-radius: 1rem;
+    --border-radius: .5em;
     --background-colour: rgba(101, 112, 120, 1);
     --pill-colour: rgba(221, 248, 232, 1);
     --pill-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
@@ -10,12 +9,39 @@
     --border-bottom: 4px solid white;
 }
 
+/* START Scrollbar styles */
+
+::-webkit-scrollbar {
+    width: 0.4em;
+    background-color: var(--background-colour);
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--background-colour);
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(206, 186, 77);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgb(206, 186, 77);
+}
+
+/* END Scrollbar */
+
 * {
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Main Landing Header */
+/* START Header */
 .main-header {
     height: 100vh;
     display: grid;
@@ -83,20 +109,15 @@ h3.main-text {
     color: white;
 }
 
-/* Text Styles */
-.title-text,
-.subtitle-text,
-.pill-text-head {
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--text-color);
-}
+/* END Header  */
 
-.title-text {
+/* START Text */
+
+.pill-text-title {
     font-size: 2.5em;
 }
 
-.pill-text-head {
+.pill-text-subtitle {
     font-size: 2em;
 }
 
@@ -104,124 +125,123 @@ h3.main-text {
     font-size: 1.75em;
 }
 
-/* Grid Styles */
-.container {
-    padding: 0.25rem;
-    margin: 0.25rem;
+.divider-text {
+    color: var(--text-color);
     font-weight: bold;
-    font-size: 1.5rem;
-    position: relative;
+    font-size: 3.5em;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
-.half-grid,
-.profile-grid,
-.project-grid,
-.SW-grid,
-.single-grid,
-.footer-grid,
-.profile-button-link-grid,
-.knowledge-base-grid,
-.quarter-grid {
+/* END Text */
+
+/* START Pills */
+.heading-pill {
+    text-align: center;
+    border-radius: var(--border-radius);
+    background-color: var(--pill-colour);
+    box-shadow: var(--pill-shadow);
+    margin: var(--gap);
+}
+
+.text-pill {
+    text-align: center;
+    border-radius: var(--border-radius);
+    background-color: var(--pill-colour);
+    box-shadow: var(--pill-shadow);
+    width: 100%;
+}
+
+.text-pill p {
+    padding-left: var(--gap);
+    padding-right: var(--gap);
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.text-pill ul{
+    list-style: circle;
+}
+
+.text-pill li{
+    margin: 0.5em;
+}
+
+/* END Pills */
+
+/* START grid */
+.profile-grid, .project-grid, .button-link-grid, .knowledge-grid, .quarter-grid, .next-grid, .footer-grid, .half-grid{
     display: grid;
+    max-width: 100%;
     gap: var(--gap);
-    margin: 2.5em;
+    margin: var(--gap);
 }
 
 .profile-grid {
-    grid-template-columns: 4fr 7fr;
+    grid-template-columns: 2fr 3fr;
 }
 
 .project-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-.SW-grid {
-    grid-template-columns: 3fr 7fr 3fr;
+.button-link-grid {
+    grid-template-columns:  1fr 1fr;
+    align-items: center;
 }
 
-.single-grid {
-    grid-template-columns: 1fr;
-}
-
-.footer-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.profile-button-link-grid {
+.knowledge-grid {
     grid-template-columns: 1fr 1fr;
-}
-
-.knowledge-base-grid {
-    grid-template-columns: 2fr 3fr;
+    align-items: center;
 }
 
 .quarter-grid {
     grid-template-columns: repeat(4, 1fr);
-}
 
-.half-grid {
-    grid-template-columns: 1fr 1fr;
-}
-
-/* Pill Styles */
-.pill {
-    padding: 1em;
-}
-
-.half-pill,
-.horizontal-pill,
-.vertical-pill,
-.two-thirds-pill,
-.one-third-pill,
-.uneven-pill-large,
-.uneven-pill-small {
     text-align: center;
     border-radius: var(--border-radius);
     background-color: var(--pill-colour);
     box-shadow: var(--pill-shadow);
 }
 
-.horizontal-pill {
-    margin: 2.5em;
+.quarter-grid p {
+    padding-left: var(--gap);
+    padding-right: var(--gap);
 }
 
-.half-pill,
-.two-thirds-pill,
-.one-third-pill,
-.uneven-pill-large,
-.uneven-pill-small {
-    padding-left: 2.5em;
-    padding-right: 2.5em;
+.next-grid{
+    grid-template-columns: 4fr 2fr;
 }
 
-/* Button classes */
-#backToTopButton {
-    position: relative;
-    cursor: pointer;
-    margin: 2.5em;
+.footer-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
 
-#backToTopButton.show {
-    display: block;
+.half-grid{
+    grid-template-columns: 1fr 1fr;
 }
 
-.back-to-top-button,
-.button {
-    color: var(--text-color);
-    display: inline-block;
-    padding: 1.5em;
-    font-size: 1em;
-    cursor: pointer;
+
+
+/* END grid */
+
+/* START Image */
+.about-image {
+    width: 100%;
     border-radius: var(--border-radius);
-    border: none;
-    box-shadow: var(--pill-shadow);
 }
 
-/* Other Styles */
-body {
+/* END Image */
+
+html, body {
+    margin: 0 auto;
+    padding: 0;
     background-color: var(--background-colour);
     font-family: 'Roboto', sans-serif;
-    margin: 0;
+    overflow: auto;
+    width: 100%;
 }
 
 ul,
@@ -245,40 +265,80 @@ a {
     color: black;
 }
 
-.about-image {
+/* START Footer */
+footer {
+    background-color: var(--background-colour);
+    border-top: 4px solid white;
     width: 100%;
-    border-radius: var(--border-radius);
-}
-
-.divider-text-container {
-    padding: 1em;
-}
-
-.divider-text {
-    color: var(--text-color);
-    font-weight: bold;
-    font-size: 3.5em;
     text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
 }
 
-.center-flex,
-.center-flex-col {
+.center-flex a {
+    color: white;
+}
+
+/* END Footer */
+
+/* START Warning */
+
+#warningMessage {
+    display: none;
+    position: fixed;
+    max-width: 100%;
+    height: 100%;
+    background-color: rgb(206, 186, 77);
+    z-index: 9999;
+    word-wrap: break-word;
+}
+
+#warningMessage p {
+    margin-top: 3em;
+    text-align: center;
+    width: 65%;
+    font-size: 1em;
+    padding: 0.25em;
+    color: black;
+    font-weight: bold;
+}
+
+/* END Warning */
+
+
+/* START Button */
+.button, .back-to-top-button {
+    display: inline-block;
+    padding: 2em;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--pill-shadow);
+}
+
+/* END Button */
+
+/* START flex */
+.center-flex, .center-flex-list {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.center-flex-list{
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.center-flex-col {
-    flex-direction: column;
-    text-align: left;
-    padding: 1.25em;
-}
+/* END flex */
 
-.center-flex-col ul {
-    list-style: circle;
-}
 
-.slider-container {
+/* START Sliders */
+    .slider-container {
     position: relative;
     background-color: var(--background-colour);
     box-shadow: var(--pill-shadow);
@@ -296,26 +356,26 @@ a {
     height: 100%;
     width: 1%;
     background-color: transparent;
-    transition: width 0.5s;
+    transition: width 0.75s;
+}
+
+.slider-one.active, .slider-two.active, .slider-three.active, .slider-four.active{
+    background-color: rgb(206, 186, 77);
 }
 
 .slider-one.active {
-    background-color: rgb(206, 186, 77);
     width: 25%;
 }
 
 .slider-two.active {
-    background-color: rgb(206, 186, 77);
     width: 50%;
 }
 
 .slider-three.active {
-    background-color: rgb(206, 186, 77);
     width: 75%;
 }
 
 .slider-four.active {
-    background-color: rgb(206, 186, 77);
     width: 100%;
 }
 
@@ -341,143 +401,4 @@ a {
 .slider-container.third {
     left: 75%;
 }
-
-/* Footer Styles */
-footer {
-    background-color: darkgray;
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: large;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
-.center-flex a {
-    color: white;
-}
-
-
-#warningMessage {
-    display: none;
-    position: fixed;
-    max-width: 100%;
-    height: 100%;
-    background-color: rgb(206, 186, 77);
-    z-index: 9999;
-    word-wrap: break-word;
-}
-
-#warningMessage p {
-    margin-top: 3em;
-    text-align: center;
-    width: 65%;
-    font-size: 1em;
-    padding: 0.25em;
-    color: black;
-    font-weight: bold;
-}
-
-
-/* START Responsive Design */
-@media screen and (max-width: 400px) {
-    body {
-        max-width: 100%;
-    }
-
-    #spacer {
-        display: none;
-    }
-
-    .main-header {
-        display: inline-block;
-        background-size: cover;
-        position: relative;
-        width: 100%;
-    }
-
-    h1.main-text {
-        font-weight: bold;
-        font-size: 3.25em;
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-        text-align: left;
-    }
-
-    h2.main-text {
-        font-weight: bold;
-        font-size: 1.5em;
-        margin-top: 0.35em;
-        margin-bottom: 0.35em;
-        text-align: left;
-    }
-
-    h3.main-text {
-        font-weight: bold;
-        margin-top: 0.35em;
-        margin-bottom: 0.35em;
-        font-size: 1.25em;
-        text-align: left;
-    }
-
-    .hero {
-        width: 100%;
-        align-items: center;
-        margin-top: 5em;
-        margin-bottom: 5em;
-        margin-left: 0.25em;
-    }
-
-    .navbar {
-        display: inline-block;
-        height: fit-content;
-        width: 100%;
-        background-color: var(--background-colour);
-        bottom: 0;
-        position: absolute;
-        border-bottom: var(--border-bottom);
-    }
-
-    .navbar ul {
-        padding: 1em;
-    }
-
-    .navbar li {
-        margin: 0.5em;
-        padding: 0.5em;
-        font-size: 1.5em;
-        text-align: center;
-    }
-
-    /* END Header Styles */
-    /* START main styles */
-    .half-grid,
-    .profile-grid,
-    .project-grid,
-    .SW-grid,
-    .single-grid,
-    .profile-button-link-grid,
-    .knowledge-base-grid,
-    .quarter-grid {
-        display: grid;
-        gap: .5em;
-        margin: .5em;
-        grid-template-columns: 1fr;
-    }
-
-    .divider-text {
-        font-size: 3em;
-    }
-
-    .footer-grid {
-        margin: 0.5em;
-        gap: 0.5em;
-    }
-
-    #backToTopButton {
-        margin: 0;
-    }
-}
-
-/* END Responsive Design */
+/* END Sliders */

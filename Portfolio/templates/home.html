@@ -2,117 +2,115 @@
 
 {% block body %}
 
-<section class="main-header">
-
-    <div id="warningMessage">
-        <p>Screen size too low. Please view this site on a larger screen</p>
-    </div>
-
-    <div class="" id="spacer"></div>
-    <div class="hero">
-        <h2 class="main-text">Hey there! I'm</h2>
-        <h1 class="main-text">Theophilus<br>Nenhanga</h1>
-        <h3 class="main-text">Welcome to my portfolio website<br>You'll learn a bit more about me<br>and what I have
-            been working on</h3>
-    </div>
-    <div class="navbar">
-        <ul>
-            <li><a class="navbar-link" href="#profile">Profile</a></li>
-            <li><a class="navbar-link" href="#projects">Projects</a></li>
-            <li><a class="navbar-link" href="#knowledge">Knowledge Base</a></li>
-            <li><a class="navbar-link" href="#SW">Strengths & Weaknesses</a></li>
-        </ul>
-    </div>
-</section>
-
 <main>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='newStyles.css') }}">
 
-    <div class="single-grid horizontal-pill" id="profile">
+    <section class="main-header">
+
+        <div id="warningMessage">
+            <p>Screen size too low. Please view this site on a larger screen</p>
+        </div>
+
+        <div class="" id="spacer"></div>
+        <div class="hero">
+            <h2 class="main-text">Hey there! I'm</h2>
+            <h1 class="main-text">Theophilus<br>Nenhanga</h1>
+            <h3 class="main-text">Welcome to my portfolio website<br>You'll learn a bit more about me<br>and what I have
+                been working on</h3>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a class="navbar-link" href="#profile">Profile</a></li>
+                <li><a class="navbar-link" href="#projects">Projects</a></li>
+                <li><a class="navbar-link" href="#knowledge">Knowledge Base</a></li>
+                <li><a class="navbar-link" href="#next">What's Next</a></li>
+            </ul>
+        </div>
+    </section>
+    <div class="heading-pill" id="profile">
         <h3 class="divider-text">Profile</h3>
     </div>
 
     <div class="profile-grid">
-        <div class="">
-            <img class="about-image" src="{{ url_for('static', filename='face.jpg') }}"
-                 alt="A picture of Theophilus smiling" srcset="">
+        <div>
+            <img class="about-image" src="{{ url_for('static', filename='face.jpg') }}" alt="A picture of Theophilus">
         </div>
 
-        <div class="two-thirds-pill">
-            <p class="title-text">Who I Am</p>
+        <div class="text-pill">
+            <p class="pill-text-title">Who I Am</p>
             <p class="pill-text-p">
                 Hey there, I'm Theophilus Nenhanga. Thank you for visiting my site. I'm a young developer hoping to one
                 day may a difference with my code.
                 I am currently studying at the University of Saskatchewan pursuing a bachelor's degree in Computer
                 Science with a minor in Statistics.
                 <br><br>
-                When I am not writing code or being studious I'm most probably doing one of three things: reading
-                Sci-Fi, trying to write sci-fi, or playing a video game. I love thinking creatively and would like to
+                When I am not writing code or being studious I'm most probably watching some sci-fi movie, playing a video game or reading something random online. I love thinking creatively and would like to
                 work in an environment that allows me to make use of my creative mind.
             </p>
         </div>
     </div>
 
-    <div class="single-grid horizontal-pill" id="projects">
-        <h3 class="divider-text">My Projects</h3>
+    <div class="heading-pill" id="projects">
+        <h3 class="divider-text">Projects</h3>
     </div>
 
-
     <div class="project-grid">
-        {% for x in project_variable %}
-        <div class="pill vertical-pill">
-            <p class="pill-text-head">{{ x.name }}</p>
-            <p class="pill-text-p">{{ x.date }}</p>
-            <p class="pill-text-p">{{ x.languages }}</p>
-            <p class="pill-text-p">{{ x.description }}</p>
+        {% for project in projects %}
+        <div class="text-pill">
+            <p class="pill-text-subtitle">{{ project.name }}</p>
+            <p class="pill-text-subtitle">{{ project.date }}</p>
+            <p class="pill-text-subtitle">{{ project.languages }}</p>
+            <p class="pill-text-subtitle">{{ project.description }}</p>
 
-            <div class="profile-button-link-grid">
-                <a href="{{ x.link }}" target="_blank">
+            <div class="button-link-grid">
+
+                <a href="{{ project.link }}" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor"
                          class="bi bi-github"
                          viewBox="0 0 16 16">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                     </svg>
                 </a>
-                {% if x.name != "More To Come" %}
-                <a href="{{ x.learn_more_link }}">
+
+                {% if project.name != "More To Come" %}
+                <a href="{{ project.learn_more_link }}">
                     <button class="button" type="button">Learn More</button>
                 </a>
                 {% endif %}
-            </div>
 
+            </div>
         </div>
         {% endfor %}
     </div>
 
-
-    <div class="single-grid horizontal-pill" id="knowledge">
+    <div class="heading-pill" id="knowledge">
         <h3 class="divider-text">Knowledge Base</h3>
     </div>
 
-    <div class="quarter-grid horizontal-pill">
-        <div class="center-flex-col">
-            <p class="pill-text-head">1 Bar</p>
+    <div class="quarter-grid">
+        <div class="center-flex">
+            <p class="pill-text-title">1 Bar</p>
             <p class="pill-text-p">Beginner Level</p>
             <p class="pill-text-p">Basic understanding of the language. Not confident enough to create standalone
                 projects in the language</p>
         </div>
 
-        <div class="center-flex-col">
-            <p class="pill-text-head">2 Bars</p>
+        <div class="center-flex">
+            <p class="pill-text-title">2 Bars</p>
             <p class="pill-text-p">Lower Intermediate</p>
             <p class="pill-text-p">Moderate understanding of the language. Can comfortably use it to create projects,
                 albeit simple projects</p>
         </div>
 
-        <div class="center-flex-col">
-            <p class="pill-text-head">3 Bars</p>
+        <div class="center-flex">
+            <p class="pill-text-title">3 Bars</p>
             <p class="pill-text-p">Upper Intermediate</p>
             <p class="pill-text-p">Deep understanding of the language. Knowledge of data structures and algorithms. Can
                 comfortably create moderately complex projects</p>
         </div>
 
-        <div class="center-flex-col">
-            <p class="pill-text-head">4 Bars</p>
+        <div class="center-flex">
+            <p class="pill-text-title">4 Bars</p>
             <p class="pill-text-p">Advanced</p>
             <p class="pill-text-p">Understands inner workings of language and has achieved an expert level mastery that
                 is shown through multiple complex projects</p>
@@ -120,9 +118,9 @@
 
     </div>
 
-    <div class="knowledge-base-grid">
+    <div class="knowledge-grid">
         {% for language in languages %}
-        <div class="pill uneven-pill-small">
+        <div class="text-pill">
             <p class="pill-text-p">{{ language[0] }}</p>
         </div>
 
@@ -165,46 +163,37 @@
         {% endfor %}
     </div>
 
-    <div class="single-grid horizontal-pill" id="SW">
-        <h3 class="divider-text">My Strengths & Weaknesses</h3>
+    <div class="heading-pill" id="next">
+        <h3 class="divider-text">What's Next</h3>
     </div>
 
-    <div class="SW-grid">
-        <div class="pill uneven-pill-small">
-            <div class="center-flex-col">
-                <p class="pill-text-head">Strengths</p>
-                <ul>
-                    {% for strength in strength_variable %}
-                    <li class="pill-text-p">{{ strength }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-        </div>
-        <div class="uneven-pill-large">
-            <p class="pill-text-head">What I want to do next?</p>
+    <div class="next-grid">
+        <div class="text-pill">
+            <p class="pill-text-title">What's Next</p>
             <p class="pill-text-p">
                 I aim to continue to strengthen my knowledge of the key fundamentals of programming focussing my
                 attention on Java and Python.
-                I also hope to improve on my weaknesses wherever possible<br>
+                I also hope to improve on my weaknesses wherever possible
+                <br>
                 <br>
                 I hope to soon learn C# and apply my knowledge of the language in game development with Unity and
                 windows software development with .NET
             </p>
         </div>
-        <div class="pill uneven-pill-small">
-            <div class="center-flex-col">
-                <p class="pill-text-head">Weaknesses</p>
+
+        <div class="text-pill">
+            <p class="pill-text-title">Strengths</p>
+            <div class="center-flex-list">
                 <ul>
-                    {% for weakness in weakness_variable %}
-                    <li class="pill-text-p">{{ weakness }}</li>
+                    {% for strength in strengths %}
+                    <li class="pill-text-p">{{ strength }}</li>
                     {% endfor %}
                 </ul>
             </div>
-
         </div>
     </div>
 
 
 </main>
+
 {% endblock body %}

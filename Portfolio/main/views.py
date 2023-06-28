@@ -6,8 +6,6 @@ main = Blueprint("main", __name__)
 
 strengths = ["Fast Learner", "Good Team Player", "Goal Oriented", "Self Motivated"]
 
-weaknesses = ["Weakness1", "Weakness2", "Weakness3"]
-
 programming_languages = [
     ["Python", 3],
     ["Java", 3],
@@ -19,8 +17,7 @@ programming_languages = [
 @main.route("/", methods=["GET", "POST"])
 def home():
     project_db = Project.query.all()
-    return render_template("home.html", project_variable=project_db, strength_variable=strengths,
-                           weakness_variable=weaknesses, languages=programming_languages)
+    return render_template("home.html", projects=project_db, strengths=strengths, languages=programming_languages)
 
 
 def create_project_route(project_name, motivation, about, skills, languages, template_name):
