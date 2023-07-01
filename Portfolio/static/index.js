@@ -28,9 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
 // Putting this block of code above the knowledge sliders block of code stops the knowledge sliders block of code from working.
 function checkScreenSize() {
     let screenWidth = Math.min(document.body.clientWidth, window.innerWidth, document.documentElement.clientWidth);
+    let screenHeight = Math.min(document.body.clientHeight, window.innerHeight, document.documentElement.clientHeight);
     let warningMessage = document.getElementById('warningMessage');
 
-    if (screenWidth < 280) {
+    if (screenWidth < 280 || screenWidth < 300 && screenHeight < 640) {
         warningMessage.style.display = 'block';
     } else {
         warningMessage.style.display = 'none';
