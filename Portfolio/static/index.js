@@ -40,3 +40,8 @@ function checkScreenSize() {
 
 window.addEventListener('resize', checkScreenSize);
 checkScreenSize();
+
+
+function goBack(){
+    window.history.back();
+}

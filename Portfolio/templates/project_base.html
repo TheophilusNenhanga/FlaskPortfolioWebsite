@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
 {% block body %}
+
+    <div class="banner">
+        <button onclick="goBack()" class="banner-button" type="button">Back</button>
+
+        <ul class="banner-list">
+            <a href="/#profile"><li>Profile</li></a>
+            <a href="/#projects"><li>Projects</li></a>
+            <a href="/#knowledge"><li>Knowledge</li></a>
+            <a href="/#next"><li id="firstBannerItem">What's Next</li></a>
+        </ul>
+    </div>
+
     <div class="heading-pill">
         <h3 class="divider-text">{{ project_name }}</h3>
     </div>
