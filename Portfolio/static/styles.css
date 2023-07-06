@@ -43,10 +43,51 @@
 }
 
 /* START Header */
+.down-arrow{
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: center;
+	justify-items: center;
+
+	animation: shake 0.5s ease-in-out infinite;
+	animation-delay: 4s;
+}
+
+.down-arrow:hover{
+	animation-play-state: paused;
+}
+
+.down-arrow svg{
+	width: 28px;
+	height: 28px;
+	color: white;
+	box-shadow: 0 0 30px rgba(206, 186, 77, 0.75);
+	border-radius: 5em;
+	padding: .5em;
+}
+
+@keyframes shake {
+	0%{
+		transform: translateX(0);
+	}
+	25%{
+		transform: translateX(-2px) rotate(-5deg);
+	}
+	75%{
+		transform: translateX(2px) rotate(5deg);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+
+
+
 .main-header {
 	height: 100vh;
 	display: grid;
 	grid-template-columns: 4fr 17fr 4fr;
+	grid-template-rows: 19fr 1fr;
 	background: url("background.png") no-repeat;
 	background-size: cover;
 }
@@ -92,22 +133,18 @@ h3.main-text {
 
 .navbar li {
 	padding: 0.5em;
-	margin: 1em;
-	font-size: 2.5em;
+	margin: 2em 1em;
+	font-size: 1.75em;
 	font-weight: var(--font-weight);
+	box-shadow: var(--pill-shadow);
+	border-radius: 0.25em;
+	background-color: white;
+	cursor: pointer;
+	text-align: center;
 }
 
-.navbar a {
-	border-bottom: var(--border-bottom);
-	color: white;
-}
-
-.navbar a:hover {
-	border-bottom: 4px solid rgb(206, 186, 77);
-}
-
-.navbar-link {
-	color: white;
+.navbar li:hover {
+	box-shadow: 0 0 30px rgba(206, 186, 77, 0.75);
 }
 
 /* END Header  */
@@ -420,12 +457,17 @@ footer {
 }
 
 .banner-button {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	grid-template-columns: 1fr 1fr;
+
 	font-size: 1em;
 	padding: 1em;
 	margin-top: 1em;
 	margin-left: 2.5em;
 	margin-right: 1em;
-	background-color: var(--pill-colour);
+	background-color: white;
 	border-radius: var(--border-radius);
 	border: none;
 	box-shadow: var(--pill-shadow);
@@ -450,8 +492,9 @@ footer {
 	font-size: 1em;
 	box-shadow: var(--pill-shadow);
 	border-radius: var(--border-radius);
+	background-color: white;
 	cursor: pointer;
-	font-weight: bold;
+	font-weight: var(--font-weight);
 }
 
 .banner-list li:hover {

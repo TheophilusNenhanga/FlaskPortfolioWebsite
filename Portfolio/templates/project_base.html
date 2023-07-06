@@ -2,47 +2,62 @@
 
 {% block body %}
 
-    <div class="banner">
-        <button onclick="goBack()" class="banner-button" type="button">Back</button>
+<div class="banner">
+    <button onclick="goBack()" class="banner-button" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left"
+             viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        Back
+    </button>
 
-        <ul class="banner-list">
-            <a href="/#profile"><li>Profile</li></a>
-            <a href="/#projects"><li>Projects</li></a>
-            <a href="/#knowledge"><li>Knowledge</li></a>
-            <a href="/#next"><li id="firstBannerItem">What's Next</li></a>
-        </ul>
+    <ul class="banner-list">
+        <a href="/#profile">
+            <li>Profile</li>
+        </a>
+        <a href="/#projects">
+            <li>Projects</li>
+        </a>
+        <a href="/#knowledge">
+            <li>Knowledge</li>
+        </a>
+        <a href="/#next">
+            <li id="firstBannerItem">What's Next</li>
+        </a>
+    </ul>
+</div>
+
+<div class="heading-pill">
+    <h3 class="divider-text">{{ project_name }}</h3>
+</div>
+
+<div class="half-grid">
+    <div class="text-pill">
+        <p class="pill-text-title">Motivation</p>
+        <p class="pill-text-p">
+            {{ motivation }}
+        </p>
     </div>
 
-    <div class="heading-pill">
-        <h3 class="divider-text">{{ project_name }}</h3>
+    <div class="text-pill">
+        <p class="pill-text-title">About the project</p>
+        <p class="pill-text-p">
+            {{ about }}
+        </p>
     </div>
+</div>
 
-    <div class="half-grid">
-        <div class="text-pill">
-            <p class="pill-text-title">Motivation</p>
-            <p class="pill-text-p">
-                {{ motivation }}
-            </p>
-        </div>
-
-        <div class="text-pill">
-            <p class="pill-text-title">About the project</p>
-            <p class="pill-text-p">
-                {{ about }}
-            </p>
-        </div>
+<div class="profile-grid">
+    <div class="text-pill">
+        <p class="pill-text-title">Languages Used</p>
+        {% for language in languages %}
+        <p class="pill-text-p">{{ language }}</p>
+        {% endfor %}
     </div>
-
-    <div class="profile-grid">
-        <div class="text-pill">
-            <p class="pill-text-title">Languages Used</p>
-            {% for language in languages %}
-                <p class="pill-text-p">{{ language }}</p>
-            {% endfor %}
-        </div>
-        <div class="text-pill">
-            <p class="pill-text-title">Skills Utilised</p>
-            <p class="pill-text-p">{{ skills }}</p>
-        </div>
+    <div class="text-pill">
+        <p class="pill-text-title">Skills Utilised</p>
+        <p class="pill-text-p">{{ skills }}</p>
     </div>
+</div>
 {% endblock body %}
