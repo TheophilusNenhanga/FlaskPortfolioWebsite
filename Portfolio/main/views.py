@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, send_file, abort
 
 from Portfolio.main.models import Project
 
@@ -12,6 +12,12 @@ programming_languages = [
     ["HTML+CSS", 2],
     ["JavaScript", 1]
 ]
+
+ALLOWED_EXTENSIONS = {"pdf"}
+
+
+def allowed_file(filename: str):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @main.route("/", methods=["GET", "POST"])
@@ -33,6 +39,14 @@ def create_project_route(project_name, motivation, about, skills, languages, tem
         )
 
     return project_function
+
+
+@main.route("/download_resume", )
+def download_resume():
+    file_path = "static\\theophilus-nenhanga-resume.pdf"
+    # if not allowed_file(file_path):
+    # abort(403)
+    return send_file(file_path, as_attachment=True)
 
 
 # Create routes for individual projects

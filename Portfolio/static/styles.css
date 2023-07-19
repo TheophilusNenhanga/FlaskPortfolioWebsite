@@ -49,7 +49,7 @@
 	align-items: center;
 	justify-items: center;
 
-	animation: shake 0.5s ease-in-out infinite;
+	animation: bounce 1s ease-in-out infinite;
 	animation-delay: 4s;
 }
 
@@ -66,18 +66,18 @@
 	padding: .5em;
 }
 
-@keyframes shake {
+@keyframes bounce {
 	0%{
-		transform: translateX(0);
+		transform: translateY(0px);
 	}
 	25%{
-		transform: translateX(-2px) rotate(-5deg);
+		transform: translateY(4px);
 	}
 	75%{
-		transform: translateX(2px) rotate(5deg);
+		transform: translateY(-4px);
 	}
 	100%{
-		transform: translateX(0);
+		transform: translateY(0px);
 	}
 }
 
@@ -127,13 +127,13 @@ h3.main-text {
 
 .navbar {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 }
 
-.navbar li {
+.navbar-list-item{
 	padding: 0.5em;
-	margin: 2em 1em;
+	margin: 1em 1em;
 	font-size: 1.75em;
 	font-weight: var(--font-weight);
 	box-shadow: var(--pill-shadow);
@@ -143,7 +143,7 @@ h3.main-text {
 	text-align: center;
 }
 
-.navbar li:hover {
+.navbar-list-item:hover {
 	box-shadow: 0 0 30px rgba(206, 186, 77, 0.75);
 }
 
@@ -210,7 +210,7 @@ h3.main-text {
 /* END Pills */
 
 /* START grid */
-.profile-grid, .project-grid, .button-link-grid, .knowledge-grid, .quarter-grid, .next-grid, .footer-grid, .half-grid {
+.profile-grid, .project-grid, .button-link-grid, .knowledge-grid, .quarter-grid, .next-grid, .footer-grid, .half-grid, .download-grid {
 	display: grid;
 	max-width: 100%;
 	gap: var(--gap);
@@ -260,6 +260,11 @@ h3.main-text {
 
 .half-grid {
 	grid-template-columns: 1fr 1fr;
+}
+
+.download-grid{
+	grid-template-columns: 4fr 1fr;
+	justify-items: end;
 }
 
 
@@ -483,7 +488,8 @@ footer {
 	text-align: right;
 }
 
-.banner-list li {
+
+.banner-list-button{
 	display: inline-block;
 	padding: 1em;
 	margin-top: 1em;
@@ -497,14 +503,13 @@ footer {
 	font-weight: var(--font-weight);
 }
 
-.banner-list li:hover {
+.banner-list-button:hover {
 	box-shadow: 0 0 30px rgba(206, 186, 77, 0.75);
 }
 
 #firstBannerItem {
 	margin-right: 2.5em;
 }
-
 
 @media screen and (max-width: 300px) {
 	.main-header {
