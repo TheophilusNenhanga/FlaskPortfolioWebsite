@@ -1,6 +1,8 @@
-from flask import Blueprint, render_template, send_file, abort
+from flask import Blueprint, render_template, send_file
+# from flask import abort
 
 from Portfolio.main.models import Project
+from Portfolio.main.util import Repository, python_game, java_game, stats_site, store_management, portfolio
 
 main = Blueprint("main", __name__)
 
@@ -26,16 +28,16 @@ def home():
     return render_template("home.html", projects=project_db, strengths=strengths, languages=programming_languages)
 
 
-def create_project_route(project_name, motivation, about, skills, languages, template_name):
-    @main.route(project_name, methods=["GET", "POST"], endpoint=f"{project_name}_endpoint")
+def create_project_route(repository: Repository, template_name):
+    @main.route(repository.name, methods=["GET", "POST"], endpoint=f"{repository.name}_endpoint")
     def project_function():
         return render_template(
             template_name,
-            project_name=project_name,
-            motivation=motivation,
-            about=about,
-            skills=skills,
-            languages=languages
+            project_name=repository.name,
+            motivation=repository.motivation,
+            about=repository.about,
+            skills=repository.skills,
+            languages=repository.languages
         )
 
     return project_function
@@ -43,51 +45,26 @@ def create_project_route(project_name, motivation, about, skills, languages, tem
 
 @main.route("/download_resume", )
 def download_resume():
-    file_path = "static\\theophilus-nenhanga-resume.pdf"
+    file_path = "static/theophilus-nenhanga-resume.pdf"
     # if not allowed_file(file_path):
     # abort(403)
     return send_file(file_path, as_attachment=True)
 
 
 # Create routes for individual projects
-python_game_route = create_project_route(
-    "Python Text Based Adventure Game",
-    "This is the motivation\nThis is where I will write what motivated me to work on this project",
-    "This is the about\nThis is where I will write what the project is about and a bit about how it works",
-    "These are the skills that I showed in this project",
-    ["Python"],
-    "python_game.html"
-)
+python_game_route = create_project_route(python_game, "python_game.html")
 
-java_game_route = create_project_route(
-    "Java Text Based Adventure Game",
-    "This is the motivation\nThis is where I will write what motivated me to work on this project",
-    "This is the about\nThis is where I will write what the project is about and a bit about how it works",
-    "These are the skills that I showed in this project",
-    ["Java"],
-    "java_game.html"
-)
+java_game_route = create_project_route(java_game, "java_game.html")
 
-stats_route = create_project_route(
-    "Statistics Visualization Website",
-    "This is the motivation\nThis is where I will write what motivated me to work on this project",
-    "This is the about\nThis is where I will write what the project is about and a bit about how it works",
-    "These are the skills that I showed in this project",
-    ["Python", "HTML", "CSS", "JavaScript"],
-    "stats.html"
-)
+stats_route = create_project_route(stats_site, "stats.html")
 
-portfolio_route = create_project_route(
-    "Portfolio Website",
-    "This is the motivation\nThis is where I will write what motivated me to work on this project",
-    "This is the about\nThis is where I will write what the project is about and a bit about how it works",
-    "These are the skills that I showed in this project",
-    ["Python", "HTML", "CSS", "JavaScript"],
-    "portfolio.html"
-)
+portfolio_route = create_project_route(portfolio, "portfolio.html")
+
+store_management_route = create_project_route(store_management, "store_management.html")
 
 # Register routes
 main.add_url_rule("/projects/python-game", view_func=python_game_route, endpoint="python_game_endpoint")
 main.add_url_rule("/projects/java-game", view_func=java_game_route, endpoint="java_game_endpoint")
 main.add_url_rule("/projects/stats", view_func=stats_route, endpoint="stats_endpoint")
 main.add_url_rule("/projects/portfolio", view_func=portfolio_route, endpoint="portfolio_endpoint")
+main.add_url_rule("/projects/store-management", view_func=store_management_route, endpoint="store_management_endpoint")

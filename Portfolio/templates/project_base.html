@@ -49,7 +49,9 @@
     </div>
     <div class="text-pill">
         <p class="pill-text-title">Skills Utilised</p>
-        <p class="pill-text-p">{{ skills }}</p>
+        {% for skill in skills %}
+        <p class="pill-text-p">{{ skill }}</p>
+        {% endfor %}
     </div>
 </div>
 {% endblock body %}

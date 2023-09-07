@@ -265,6 +265,7 @@ h3.main-text {
 .download-grid{
 	grid-template-columns: 4fr 1fr;
 	justify-items: end;
+	align-items: center;
 }
 
 
