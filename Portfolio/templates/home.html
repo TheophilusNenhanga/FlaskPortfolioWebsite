@@ -19,10 +19,10 @@
                 been working on</h3>
         </div>
         <div class="navbar">
-                <a class="navbar-list-item" href="#profile">Profile</a>
-                <a class="navbar-list-item" href="#projects">Projects</a>
-                <a class="navbar-list-item" href="#knowledge">Knowledge Base</a>
-                <a class="navbar-list-item" href="#next">What's Next</a>
+            <a class="navbar-list-item" href="#profile">Profile</a>
+            <a class="navbar-list-item" href="#projects">Projects</a>
+            <a class="navbar-list-item" href="#knowledge">Knowledge Base</a>
+            <a class="navbar-list-item" href="#next">What's Next</a>
         </div>
         <div></div>
 
@@ -79,7 +79,7 @@
         <div class="text-pill">
             <p class="pill-text-subtitle">{{ project.name }}</p>
             <p class="pill-text-subtitle">{{ project.date }}</p>
-            <p class="pill-text-subtitle">{{ project.languages }}</p>
+            <p class="pill-text-subtitle">{% for lang in project.languages %} {{ lang }} {% endfor %}</p>
             <p class="pill-text-subtitle">{{ project.description }}</p>
 
             <div class="button-link-grid">
@@ -92,11 +92,9 @@
                     </svg>
                 </a>
 
-                {% if project.name != "More To Come" %}
-                <a href="{{ project.learn_more_link }}">
+                <a href="{{ project.learn_more }}">
                     <button class="button" type="button">Learn More</button>
                 </a>
-                {% endif %}
 
             </div>
         </div>

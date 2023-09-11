@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, send_file
 # from flask import abort
 
-from Portfolio.main.models import Project
-from Portfolio.main.util import Repository, python_game, java_game, stats_site, store_management, portfolio
+from Portfolio.main.util import Repository, python_game, java_game, stats_site, store_management, portfolio, \
+    repositories
 
 main = Blueprint("main", __name__)
 
@@ -24,8 +24,7 @@ def allowed_file(filename: str):
 
 @main.route("/", methods=["GET", "POST"])
 def home():
-    project_db = Project.query.all()
-    return render_template("home.html", projects=project_db, strengths=strengths, languages=programming_languages)
+    return render_template("home.html", projects=repositories, strengths=strengths, languages=programming_languages)
 
 
 def create_project_route(repository: Repository, template_name):

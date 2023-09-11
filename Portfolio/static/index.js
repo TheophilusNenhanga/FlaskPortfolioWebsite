@@ -1,9 +1,16 @@
-
-
 // Back to Top Button
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('backToTopButton').addEventListener('click', function () {
+    document.getElementById("backToTopButton").addEventListener("click", function () {
         window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+    document.getElementById("hamburger-button").addEventListener("click", function (){
+       const hamburgerFlyout = document.getElementById("hamburger-flyout");
+       if (hamburgerFlyout.classList.contains("invisible")){
+           hamburgerFlyout.classList.remove("invisible")
+       }else{
+           hamburgerFlyout.classList.add("invisible")
+       }
     });
 });
 
@@ -17,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let sliderPosition = slider.getBoundingClientRect();
             let windowHeight = window.innerHeight;
 
-            if (sliderPosition.top >= - 50 && sliderPosition.bottom <= windowHeight + 50) {
+            if (sliderPosition.top >= -50 && sliderPosition.bottom <= windowHeight + 50) {
                 slider.classList.add("active");
             } // else{slider.classList.remove("active")}
         });
@@ -42,6 +49,6 @@ window.addEventListener('resize', checkScreenSize);
 checkScreenSize();
 
 
-function goBack(){
+function goBack() {
     window.history.back();
 }
